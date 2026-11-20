@@ -1,0 +1,420 @@
+/* ================= 父母端专属样式（elder-ui 规范） =================
+   字号、点击区、对比度一律用 px 写死，不使用 Tailwind 的缩放字号。
+   正文 ≥20px，主按钮 ≥28px 字 / ≥64px 高，可点元素 ≥44px，对比度 ≥7:1。 */
+.yp {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #16211c;
+  background: transparent;
+}
+.yp-hook {
+  font-size: 19px;
+  color: #5b6560;
+  margin: 10px 0 0;
+  max-width: 36em;
+  line-height: 1.5;
+}
+.yp-title-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 21px;
+  font-weight: 600;
+  color: #16211c;
+  cursor: pointer;
+}
+.yp-title-btn:focus-visible { outline: 4px solid #b45309; outline-offset: 3px; }
+
+/* 并排演示 */
+.yp-split-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: #fbfaf6;
+  border: 1px solid rgba(22, 33, 28, 0.1);
+  border-radius: 16px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  font-size: 19px;
+  font-weight: 600;
+  color: #16211c;
+}
+.yp-split-stage {
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.yp-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 24px;
+  align-items: start;
+}
+/* grid / flex 子项默认 min-width:auto 会被内容撑破，这里统一归零 */
+.yp-split,
+.yp-split > *,
+.yp-split-main,
+.yp-split-main > *,
+.yp-split-side,
+.yp-split-side > *,
+.yp-split .yp-grid > *,
+.yp-split .yp-toolbar > *,
+.yp-split .yp-item,
+.yp-split .yp-item > *,
+.yp-split .yp-item-main {
+  min-width: 0;
+}
+.yp-split-main { padding: 0 16px; }
+.yp-split-side {
+  position: relative;
+  background: #fbfaf6;
+  border: 1px solid rgba(22, 33, 28, 0.1);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(22, 33, 28, 0.1);
+}
+/* 两栏之间那一条竖线，正好落在 24px 间距的中间 */
+.yp-split-side::before {
+  content: "";
+  position: absolute;
+  left: -13px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(22, 33, 28, 0.1);
+}
+.yp-split-title {
+  font-size: 14px;
+  color: #5b6560;
+  margin: 0 0 10px;
+}
+.yp-split-frame {
+  display: block;
+  width: 100%;
+  height: 72vh;
+  border: 1px solid rgba(22, 33, 28, 0.14);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(22, 33, 28, 0.1);
+  background: #ffffff;
+}
+.yp-split-fallback {
+  background: #fbfaf6;
+  border: 1px solid rgba(22, 33, 28, 0.12);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+  color: #16211c;
+}
+.yp-split-fallback p { margin: 0 0 10px; font-size: 17px; font-weight: 600; }
+@media (max-width: 900px) {
+  .yp-split { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .yp-split-side::before { display: none; }
+  .yp-split-frame { height: 60vh; }
+}
+.yp h1 { font-size: 30px; line-height: 1.3; margin: 0 0 6px; font-weight: 700; }
+.yp h2 { font-size: 24px; margin: 0 0 10px; font-weight: 700; }
+.yp p { margin: 0 0 10px; }
+.yp-hint { font-size: 17px; color: #5b6560; }
+.yp-panel {
+  background: #fbfaf6;
+  border: 1px solid rgba(22, 33, 28, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(22, 33, 28, 0.06);
+}
+.yp-toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 20px; }
+
+.yp-big {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 64px;
+  padding: 12px 20px;
+  border-radius: 16px;
+  border: none;
+  background: #0f5c4a;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.yp-big:hover { background: #0d4f40; }
+.yp-big:focus-visible { outline: 4px solid #b45309; outline-offset: 3px; }
+.yp-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(22, 33, 28, 0.14);
+  background: #fbfaf6;
+  color: #0f5c4a;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.yp-secondary:hover { background: #eef3f1; }
+.yp-secondary:focus-visible { outline: 4px solid #b45309; outline-offset: 3px; }
+.yp-secondary[aria-pressed="true"] { background: #0f5c4a; color: #ffffff; }
+.yp-text-button {
+  min-height: 44px;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  color: #0f5c4a;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.yp-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+/* 四张大字卡下方的入口：文字链，不是大按钮 */
+.yp-more { margin: 14px 0 0; }
+.yp-more .yp-text-button { text-align: left; }
+/* 类型按钮组：窄屏折成两行网格，「转账」始终可见 */
+.yp-kinds {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.yp-kinds .yp-secondary { padding: 8px 4px; white-space: nowrap; }
+.yp-big-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  min-height: 150px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(22, 33, 28, 0.1);
+  background: #fbfaf6;
+  color: #16211c;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(22, 33, 28, 0.06);
+}
+.yp-big-card:hover { border-color: #0f5c4a; }
+.yp-big-card:focus-visible { outline: 4px solid #b45309; outline-offset: 3px; }
+.yp-big-card-icon { font-size: 48px; line-height: 1; }
+.yp-big-card-label { font-size: 26px; font-weight: 700; color: #16211c; }
+.yp-big-card-sub { font-size: 17px; color: #5b6560; }
+
+.yp-field { display: block; margin-bottom: 18px; }
+.yp-field > span { display: block; font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+.yp-field input {
+  width: 100%;
+  min-height: 56px;
+  padding: 10px 14px;
+  font-size: 22px;
+  border-radius: 12px;
+  border: 2px solid #8c9a93;
+  background: #ffffff;
+  color: #16211c;
+}
+.yp-field input:focus-visible { outline: 4px solid #b45309; outline-offset: 2px; }
+
+/* 语音输入：输入框 + 右侧小麦克风 */
+.yp-input-row { display: flex; align-items: center; gap: 10px; }
+.yp-input-row input { flex: 1; min-width: 0; }
+.yp-field input.yp-input-active {
+  border-color: #b45309;
+  outline: 2px solid rgba(180, 83, 9, 0.3);
+  outline-offset: 1px;
+}
+.yp-mic-btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(22, 33, 28, 0.14);
+  background: #fbfaf6;
+  color: #0f5c4a;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+.yp-mic-btn:hover { background: #eef3f1; }
+.yp-mic-btn:active { background: #eef3f1; }
+.yp-mic-btn:focus-visible { outline: 4px solid #b45309; outline-offset: 3px; }
+.yp-voice-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  margin-bottom: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(22, 33, 28, 0.1);
+  background: #fbfaf6;
+  color: #0f5c4a;
+  font-size: 17px;
+  font-weight: 700;
+}
+.yp-voice-hint { margin-bottom: 10px; }
+.yp-field select {
+  width: 100%;
+  min-height: 56px;
+  padding: 10px 14px;
+  font-size: 22px;
+  border-radius: 12px;
+  border: 2px solid #8c9a93;
+  background: #ffffff;
+  color: #16211c;
+}
+
+.yp-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(22, 33, 28, 0.1);
+}
+.yp-item:last-child { border-bottom: none; }
+.yp-item-main { flex: 1; min-width: 0; }
+.yp-item-title { font-size: 21px; font-weight: 600; overflow-wrap: anywhere; }
+.yp-item-sub { font-size: 17px; color: #5b6560; overflow-wrap: anywhere; }
+/* 时限一行：颜色与子女端同源（见 src/types.ts 的 deadlineView） */
+.yp-deadline { font-weight: 600; }
+.yp-tag {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.yp-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.yp-badge-pending { background: var(--st-pending-bg); color: var(--st-pending-ink); }
+.yp-badge-approved { background: var(--st-approved-bg); color: var(--st-approved-ink); }
+.yp-badge-blocked { background: var(--st-blocked-bg); color: var(--st-blocked-ink); }
+.yp-badge-cooling { background: var(--st-cooling-bg); color: var(--st-cooling-ink); }
+.yp-badge-done { background: var(--st-done-bg); color: var(--st-done-ink); }
+.yp-badge-rejected { background: var(--st-rejected-bg); color: var(--st-rejected-ink); }
+
+.yp-notice { border-radius: 16px; border: 1px solid currentColor; padding: 14px 16px; margin-bottom: 16px; }
+.yp-notice-blocked { background: var(--st-blocked-bg); color: var(--st-blocked-ink); }
+.yp-notice-cooling { background: var(--st-cooling-bg); color: var(--st-cooling-ink); }
+.yp-notice-ok { background: var(--st-approved-bg); color: var(--st-approved-ink); }
+
+.yp-passcode {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 8px 0 12px;
+}
+.yp-link {
+  font-size: 16px;
+  color: #0f5c4a;
+  word-break: break-all;
+  background: #fbfaf6;
+  border: 1px solid rgba(22, 33, 28, 0.14);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+.yp-foot { font-size: 16px; color: #6b7470; }
+.yp-voice { margin-bottom: 20px; }
+.yp-voice-btn { width: 100%; }
+.yp-list { margin: 0; padding-left: 22px; }
+.yp-list li { margin-bottom: 6px; }
+.yp-details summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-size: 18px; color: #0f5c4a; font-weight: 600; }
+.yp-empty { padding: 24px 0; text-align: center; color: #5b6560; font-size: 19px; }
+.yp-trace { list-style: none; margin: 8px 0 0; padding: 0; }
+.yp-trace li { display: grid; grid-template-columns: 92px 1fr; gap: 10px; padding: 8px 0; border-bottom: 1px dashed rgba(22, 33, 28, 0.1); font-size: 16px; }
+.yp-trace time { color: #5b6560; font-variant-numeric: tabular-nums; }
+.yp-trace p { margin: 2px 0 0; color: #5b6560; font-size: 16px; }
+
+@media (max-width: 420px) {
+  .yp-grid { gap: 10px; }
+  .yp-big-card { min-height: 120px; padding: 8px 6px; gap: 0; line-height: 1.25; }
+  .yp-big-card-label { font-size: 23px; }
+  .yp-big-card-sub { font-size: 17px; }
+  .yp h1 { font-size: 26px; }
+  .yp-hook { font-size: 18px; margin-top: 6px; line-height: 1.4; }
+  .yp-split-bar { padding: 8px 12px; font-size: 17px; margin-bottom: 10px; }
+  .yp-split-main { padding: 0 8px; }
+  .yp-toolbar { gap: 8px; }
+  .yp-secondary { padding: 6px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .yp * { transition: none !important; animation: none !important; }
+}
+
+/* ================= 表单底部：返回与语音输入并排 =================
+   老人在四张大字卡里点错一张、或者填一半不想填了，需要退回去；
+   「返回」必须和另外两个按钮一样大、一样是按钮，不能是一行说明文字。 */
+.yp-form-actions {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: end;
+  margin-bottom: 12px;
+}
+/* 语音按钮的 wrapper：去掉下外边距，浏览器不支持语音时的提示排到按钮上方，
+   这样两个按钮的底边在任何浏览器里都对齐 */
+.yp-form-actions .yp-voice {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+.yp-form-actions .yp-voice > .yp-hint:not(.yp-voice-hint) { order: -1; }
+
+/* 放大的返回按钮：与 .yp-big 同族（圆角、字重、字号），但配色次一级 */
+.yp-back-big {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 64px;
+  padding: 10px 14px;
+  border-radius: 16px;
+  border: 2px solid #0f5c4a;
+  background: #fbfaf6;
+  color: #0f5c4a;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.yp-back-big:hover { background: #eef3f1; }
+.yp-back-big:focus-visible { outline: 4px solid #b45309; outline-offset: 3px; }
+
+/* 并排布局下，语音按钮稍微收一点横向内边距，保证 375px 不溢出 */
+.yp-form-actions .yp-voice-btn {
+  padding-left: 8px;
+  padding-right: 8px;
+  white-space: nowrap;
+}
+/* .yp-big 的行高是 1.6，按钮实测 68.8px；这里收成 1.4 让三个按钮真正同高 64px */
+.yp-form-actions .yp-voice-btn,
+.yp [data-guide="send"] { line-height: 1.4; }
+
+@media (max-width: 360px) {
+  .yp-form-actions .yp-voice-btn { font-size: 24px; }
+}

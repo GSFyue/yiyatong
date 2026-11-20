@@ -1,0 +1,156 @@
+/* ================= Qoder 记录页（与其余四页同一套浅色皮肤） ================= */
+
+/* 这一页要放三列表格，容器比正文宽度放宽一档；其它页不受影响 */
+.yyt-main.yyt-main-wide {
+  max-width: 1440px;
+  padding-left: calc(16px * var(--site-space));
+  padding-right: calc(16px * var(--site-space));
+}
+
+.yq-title {
+  font-size: calc(24px * var(--site-type));
+}
+
+.yq-lead {
+  margin: 6px 0 0;
+  font-size: calc(15px * var(--site-type));
+  line-height: 1.6;
+  color: #5b6560;
+}
+
+.yq-panel {
+  margin-top: calc(16px * var(--site-space));
+  padding: calc(14px * var(--site-space));
+}
+
+/* 表格：窄屏时表格自己横向滚动，页面不跟着横向滚 */
+.yq-table-wrap {
+  margin-top: 12px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.yq-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: calc(13px * var(--site-type));
+  color: #16211c;
+}
+.yq-table th,
+.yq-table td {
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+  padding: 8px 9px;
+  border-bottom: 1px solid rgba(22, 33, 28, 0.1);
+  border-right: 1px solid rgba(22, 33, 28, 0.07);
+  line-height: 1.5;
+}
+.yq-table th {
+  font-weight: 600;
+  color: #5b6560;
+  background: #f2f0e9;
+}
+.yq-table th:last-child,
+.yq-table td:last-child {
+  border-right: none;
+}
+.yq-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.yq-version {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: #0f5c4a;
+}
+
+/* 「为什么」：同一格里另起一段，说明这版为什么非改不可 */
+.yq-why {
+  margin-top: 6px;
+  max-width: 40em;
+  white-space: normal;
+  color: #5b6560;
+}
+.yq-why b { color: #16211c; }
+
+.yq-deploy {
+  margin: 12px 0 0;
+  display: flex;
+  flex-direction: column;
+}
+.yq-deploy-row {
+  display: grid;
+  grid-template-columns: 104px 1fr;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(22, 33, 28, 0.06);
+  font-size: calc(14px * var(--site-type));
+  line-height: 1.6;
+}
+.yq-deploy-row:last-child {
+  border-bottom: none;
+}
+.yq-deploy dt {
+  color: #6b7470;
+  font-weight: 600;
+}
+.yq-deploy dd {
+  margin: 0;
+  color: #16211c;
+}
+.yq-strong {
+  font-weight: 700;
+  color: #0f5c4a;
+}
+
+.yq-flow {
+  margin: 12px 0 6px;
+  font-size: calc(15px * var(--site-type));
+  line-height: 1.7;
+  color: #16211c;
+}
+
+/* 每一轮的原始会话记录：指向 public/transcripts/ 下的静态 HTML */
+.yq-transcripts {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  background: #fbfaf6;
+  border: 1px solid rgba(22, 33, 28, 0.1);
+  border-radius: 16px;
+  font-size: calc(13px * var(--site-type));
+  color: #16211c;
+  overflow: hidden;
+}
+.yq-transcripts > li {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(22, 33, 28, 0.1);
+  text-align: left;
+  line-height: 1.7;
+}
+.yq-transcripts > li:last-child {
+  border-bottom: none;
+}
+.yq-transcripts a {
+  color: #0f5c4a;
+  text-decoration: none;
+}
+.yq-transcripts a:hover {
+  color: #0f5c4a;
+  text-decoration: underline;
+}
+.yq-tr-desc {
+  color: #16211c;
+}
+.yq-tr-calls {
+  color: #5b6560;
+}
+
+@media (max-width: 420px) {
+  .yyt-main.yyt-main-wide {
+    max-width: none;
+  }
+  .yq-deploy-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}

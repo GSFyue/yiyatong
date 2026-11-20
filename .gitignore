@@ -1,0 +1,23 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.tsbuildinfo
+.qoder-sites/
+.qoder-sites.json
+
+# Qoder Sites 工具生成的站点描述符与发布输入（含 projectId / siteId / actionId）
+# 由 sites prepare_site 自动生成并校验，不应手改，也不入库
+*.qoder.site
+.sites-prepare-input.json
+
+# 本地开发用的假数据与本地 Function 代理，不参与发布
+dev/
+
+# Qoder CLI 会话记录导出（8 份 HTML）
+# 这些文件含非 UTF-8 字节，而 Tailwind v4 的源码扫描器会扫到 public/，
+# 会让 npm run build 直接失败（Invalid code point）。
+# 所以它们不进 git，但会随 dist/ 一起发布，线上可在「Qoder 记录」页逐版浏览。
+public/transcripts/
